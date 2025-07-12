@@ -1,0 +1,6 @@
+<suite name="rootxml">
+    <Suite-files parallel="true">
+        <suite-file path="RegressionTest.xml"></suite-file>
+        <suite-file path="RegressionTest.xml"></suite-file>
+    </Suite-files>
+</suite>
