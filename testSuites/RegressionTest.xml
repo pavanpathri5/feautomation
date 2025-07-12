@@ -1,4 +1,4 @@
-<suite name="FrontEndAutomation" paralle="tests" thread-count="2">
+<suite name="FrontEndAutomation" parallel="tests" thread-count="2">
     <listeners>
         <listener class-name="io.qameta.allure.testng.AllureTestNg" />
     </listeners>
@@ -8,10 +8,10 @@
             <class name="RegressionTest"></class>
         </classes>
     </test>
-    <!--<test name="Firefox Test">
+    <test name="Firefox Test">
         <parameter name="browser" value="firefox" />
         <classes>
             <class name="RegressionTest"></class>
         </classes>
-    </test>-->
+    </test>
 </suite>

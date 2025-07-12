@@ -20,10 +20,9 @@ import java.net.URL;
 
 public class DriverFactory {
     private static final Logger logger = LogManager.getLogger(DriverFactory.class);
-    public static WebDriver createInstance(){
+    public static WebDriver createInstance(String browser){
         String runMode = config.ConfigManager.getRunMode();
         String os = config.ConfigManager.get("os");
-        String browser = System.getProperty("browser","chrome");
         logger.info("Creating WebDriver instance. Browser: " + browser + ", RunMode: " + runMode + ", OS: " + os);
         MutableCapabilities capabilities;
         switch(browser.toLowerCase()){

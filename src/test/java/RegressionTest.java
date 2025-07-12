@@ -1,4 +1,5 @@
 import config.ConfigManager;
+import drivers.BaseTest;
 import drivers.DriverManager;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -6,16 +7,26 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
 import pages.herokuapp.HomePage;
+import utils.AssertUtil;
+import utils.RetryAnalyzer;
+import utils.SeleniumUtils;
 
 public class RegressionTest extends BaseTest {
     @Epic("App Launch")
     @Feature("App Launch & close")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "verify open url and close browser")
+    @Test(description = "verify open url and close browser",retryAnalyzer = RetryAnalyzer.class)
     public void firstTest() throws InterruptedException {
         DriverManager.getDriver().get(ConfigManager.get("baseUrl"));
         HomePage homePage = new HomePage();
-        homePage.clickHomeButton();
+        SeleniumUtils.click(homePage.getLocator(HomePage.HomePageElement.AB_TEST));
+        //SeleniumUtils.type(homePage.getLocator(HomePage.HomePageElement.SEARCH_BOX), "query");
+        //AssertUtil.assertTrue(SeleniumUtils.isVisible(homePage.getLocator(HomePage.HomePageElement.ADD_REMOVE_ELEMENTS)),"Verifying the add remove button");
+        SeleniumUtils.navigateBack();
+        SeleniumUtils.click(homePage.getLocator(HomePage.HomePageElement.ADD_REMOVE_ELEMENTS));
+        SeleniumUtils.navigateBack();
+        SeleniumUtils.click(homePage.getLocator(HomePage.HomePageElement.BASIC_AUTH));
+        Thread.sleep(5000);
+        AssertUtil.assertAll();
     }
-
 }
