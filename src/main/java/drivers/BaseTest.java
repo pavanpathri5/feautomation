@@ -1,8 +1,6 @@
 package drivers;
 
 import config.ConfigManager;
-import drivers.DriverFactory;
-import drivers.DriverManager;
 import io.qameta.allure.Allure;
 import io.qameta.allure.testng.AllureTestNg;
 import org.openqa.selenium.OutputType;

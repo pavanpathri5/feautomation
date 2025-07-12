@@ -11,7 +11,7 @@ import java.io.ByteArrayInputStream;
 
 public class RetryAnalyzer implements IRetryAnalyzer {
     private int retryCount=0;
-    private final int maxRetryCOunt=2;
+    private final int maxRetryCOunt=0;
     @Override
     public boolean retry(ITestResult result) {
         if (retryCount < maxRetryCOunt) {
